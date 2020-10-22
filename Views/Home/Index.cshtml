@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Mailer";
+    List<MailModel> Messages = ViewBag.Messages;
+    string status = ViewBag.status;
+}
+<div>
+    @if (status != "") {
+    <div class="bg-info">
+        <p class="text-center font-weight-bold">@status</p>
+    </div>
+    }
+    <h1>Odebrane (nieprzeczytane)</h1>
+    <ul>
+    @foreach (var item in Messages)
+    {
+        <li>
+            <b>@item.getTitle()</b>
+            <p>@item.getContent()</p>
+        </li>
+    }
+    </ul>
+
+</div>

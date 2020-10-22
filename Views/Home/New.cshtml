@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Mailer";
+    string status = ViewBag.status;
+
+}
+<div>
+    @if (status != "") {
+    <div class="bg-info">
+        <p class="text-center font-weight-bold">@status</p>
+    </div>
+    }
+    <h1>Nowa wiadomość</h1>
+    <div>
+        <form method="POST" asp-action="Send">
+            <p>Adresat</p>
+            <input name="address" class="form-control" type="email" placeholder="jan.kowalski@securemail.com"/><br/>
+            <p>Temat</p>
+            <input name="subject" class="form-control" type="text" placeholder="Temat"/><br/>
+            <p>Treść</p>
+            <input name="message" class="form-control" type="text" maxlength="20" placeholder="Wiadomość"/><br/>
+            <input type="submit" value="Wyślij"/>
+        </form>
+    </div>
+</div>

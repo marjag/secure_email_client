@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Skonfiguruj mnie";
+}
+<div>
+    <h1>Skonfiguruj mnie</h1>
+    <p>Aplikacja demonstruje zasadę działania klienta pocztowego wspierającego szyfrowanie wiadomości przez implementacje szyfrów strumieniowych RC4 oraz SEAL.</p>
+    <p>Wysyłane wiadomości są szyfrowane, a w widoku wiadomości odebranych są one przedstawiane w postaci jawnej (treść jest każdej wiadomości jest dynamicznie deszyfrowana)</p>
+    <p>W celu wysłania szyfrowanej wiadomości należy skonfigurować adres e-mail, który będzie używany do wysyłki wiadomości. Aplikacja używa serwera gmail smtp, należy zatem podać adres i hasło aktywnego konta gmail.</p>
+    <p>Otwórz plik <b>appsettings.json</b> (w głównym katalogu aplikacji) i wpisz adres konta gmail w poniższy sposób</p>
+    <pre>
+        ...
+        "mailboxCredentials" : {
+            "logInAddress": "adres@gmail.com", - Twój adres konta gmail do wysyłki
+            "logInPassword": "supersecurepassword" - hasło do tego konta gmail
+        },
+        "security": {
+            "cipherDriver": "seal", - metoda szyfrowania (rc4|seal)
+            "key": "abcdefghijklmnoprstu" - 20 znakowy klucz do szyfrowania
+        }
+    </pre>
+    <p>Pamiętaj, aby umożliwić na podanym koncie "dostęp mniej bezpiecznych aplikacji do konta google". Skonfiguruj, aby mieć dostęp do wysyłania i odbierania wiadomości.</p>
+    <a href="/">Zrobione</a>
+</div>
